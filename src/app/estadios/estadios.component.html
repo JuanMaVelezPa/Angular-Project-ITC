@@ -1,0 +1,117 @@
+<div class="table-responsive">
+  <h3 class="text-center">{{ titulo }}</h3>
+  <table class="table table-sm center" style="width: 50%">
+    <thead class="text-center">
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Ciudad</th>
+        <th>Capacidad</th>
+        <th>Ocupacion</th>
+        <th>Detalles</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let e of estadios; let i = index">
+      <tr class="estadios text-center">
+        <th>{{ i }}</th>
+        <th>{{ e.nombre }}</th>
+        <th>{{ e.ciudad.name }}</th>
+        <th>{{ e.capacidad }}</th>
+        <th *ngIf="e.ocupacion > 80; then alertaAlta; else alertaBaja"></th>
+        <ng-template #alertaAlta
+          >Alerta de Ocupacion Alta ({{ e.ocupacion }}%)</ng-template
+        >
+        <ng-template #alertaBaja
+          >Alerta de Ocupacion Baja ({{ e.ocupacion }}%)</ng-template
+        >
+        <th>
+          <button
+            [class.selected]="e === selectedEstadio"
+            type="button"
+            (click)="onSelected(e)"
+          >
+            <span class="badge">{{ e.ciudad.name }}</span>
+            <span class="name">{{ e.nombre }}</span>
+          </button>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="table-responsive">
+  <h3 class="text-center">Ciudades</h3>
+  <table class="table table-sm center" style="width: 15%">
+    <thead class="text-center">
+      <tr>
+        <th>#</th>
+        <th>Ciudad</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let c of ciudades; let i = index">
+      <tr class="text-center">
+        <th>{{ i }}</th>
+        <th>{{ c.name }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<input type="text" [(ngModel)]="ciudad" />
+<button class="center" (click)="getCiudad()">Ver ciudad</button>
+
+<div>
+  <h3 class="text-center">Patrocinador</h3>
+  <ul [ngSwitch]="patronicador">
+    <li *ngSwitchCase="'Adidas'">
+      <span class="patro-adidas">El patrocinador es Adidas</span>
+    </li>
+    <li *ngSwitchCase="'Nike'">
+      <span class="patro-nike">El patrocinador es Nike</span>
+    </li>
+    <li *ngSwitchCase="'Puma'">
+      <span class="patro-puma">El patrocinador es Puma</span>
+    </li>
+    <li *ngSwitchDefault="">
+      <span class="patro-nike">El patrocinador es invalido</span>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h3 class="text-center">Formulario</h3>
+
+  <form>
+    <label for="name" class="control-label col-sm-1" style="text-align: rigth"
+      >Nombre:</label
+    >
+    <input type="text" [(ngModel)]="nombre" name="name" class="col-sm-2" />
+
+    <label for="capacidad">Capacidad:</label>
+    <input
+      type="number"
+      [(ngModel)]="capacidad"
+      name="capacidad"
+      class="form-control"
+    />
+
+    <label for="ciudad">Ciudad: </label>
+    <input
+      type="text"
+      [(ngModel)]="ciudad"
+      name="ciudad"
+      class="form-control"
+    />
+
+    <button
+      class="btn success"
+      (click)="crearEstadio(nombre, capacidad, ciudad)"
+    >
+      Crear Estadio
+    </button>
+
+    <button class="btn danger" (click)="deleteEstadio()">
+      Eliminar ultimo Estadio
+    </button>
+  </form>
+</div>
