@@ -66,16 +66,16 @@
 
 .alerta_alta,
 .patro-puma {
-  background-color: red;
+  -webkit-text-stroke: 1px red;
 }
 
 .alerta_baja,
 .patro-nike {
-  background-color: green;
+  -webkit-text-stroke: 1px green;
 }
 
 .patro-adidas {
-  background-color: blue;
+  -webkit-text-stroke: 1px blue;
 }
 
 table,
@@ -88,4 +88,14 @@ td {
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+.form-center {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.PostBtn {
+  height: 28px;
+  margin-left: 15px;
 }

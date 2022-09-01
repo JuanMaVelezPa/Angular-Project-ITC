@@ -1,0 +1,14 @@
+.active {
+  background-color: #dddddd;
+  padding: 5px;
+  display: block;
+  float: left;
+  border: 1px solid;
+  border-radius: 8px;
+}
+
+.navbar {
+  margin-left: 5%;
+  border-bottom: 2px solid #a09e9e8a;
+  margin-bottom: 5px;
+}
