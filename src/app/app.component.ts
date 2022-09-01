@@ -15,7 +15,7 @@ export class AppComponent {
     this.config = Config;
   }
 
-  destruirComponente() {
+  dropComponent() {
     this.mostrarEquipos = false;
   }
 }

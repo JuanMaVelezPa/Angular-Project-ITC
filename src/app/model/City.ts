@@ -1,4 +1,4 @@
-export class Ciudad {
+export class City {
   public name: string;
 
   constructor(name: string) {

@@ -1,0 +1,153 @@
+<div class="table-responsive">
+  <h3 class="text-center">{{ title }}</h3>
+  <table class="table table-sm center" style="width: 50%">
+    <thead class="text-center">
+      <tr>
+        <th>#</th>
+        <th>Stadium Name</th>
+        <th>City</th>
+        <th>Capacity</th>
+        <th>Occupation</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let e of stadiums">
+      <tr class="estadios text-center">
+        <th>{{ e.id }}</th>
+        <th>{{ e.name }}</th>
+        <th>{{ e.city.name }}</th>
+        <th>{{ e.capacity }}</th>
+        <th>
+          <div *ngIf="e.ocupation > 80; then alertaAlta; else alertaBaja"></div>
+        </th>
+        <ng-template #alertaAlta
+          >Alert: High Ocupation ({{ e.ocupation }}%)</ng-template
+        >
+        <ng-template #alertaBaja
+          >Alert: Low Ocupation ({{ e.ocupation }}%)</ng-template
+        >
+        <th>
+          <div>
+            <button
+              [class.selected]="e === selectedEstadio"
+              type="button"
+              class="PostBtnEdit"
+              (click)="editStadium(e)"
+            >
+              Edit
+            </button>
+          </div>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="table-responsive">
+  <br />
+  <h3 class="text-center">Citys</h3>
+  <table class="table table-sm center" style="width: 15%">
+    <thead class="text-center">
+      <tr>
+        <th>#</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let c of citys; let i = index">
+      <tr class="text-center">
+        <th>{{ i }}</th>
+        <th>{{ c.name }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <br />
+  <h3 class="text-center">Events (click - onBlue - onKeyUp)</h3>
+  <br />
+  <div class="form-center">
+    <label for="onBlue" class="col-md-2">Click: </label>
+    <input type="text" [(ngModel)]="city" />
+    <button type="button" class="PostBtn" (click)="getCity()">See City</button>
+    <br /><br />
+    <!-- Se utiliza en buscadores OnBLue (Deja el foco del input) -->
+    <label for="onBlue" class="col-md-2">OnBlue: </label>
+    <input type="text" [(ngModel)]="city" (blur)="onBlur()" />
+    <br /><br />
+    <!-- Se utiliza cuando se levanta el enter keyup.enter -->
+    <label for="onBlue" class="col-md-2">KeyUp: </label>
+    <input type="text" [(ngModel)]="city" (keyup.enter)="onKeyUp()" />
+  </div>
+</div>
+
+<div>
+  <br />
+  <h3 class="text-center">Sponsor</h3>
+  <div [ngSwitch]="sponsor" class="text-center">
+    <p *ngSwitchCase="'Adidas'">
+      <span class="patro-adidas">The Sponsor is Adidas</span>
+    </p>
+    <p *ngSwitchCase="'Nike'">
+      <span class="patro-nike">The Sponsor is Nike</span>
+    </p>
+    <p *ngSwitchCase="'Puma'">
+      <span class="patro-puma">The Sponsor is Puma</span>
+    </p>
+    <p *ngSwitchDefault="">
+      <span class="patro-nike">The Sponsor is invalido</span>
+    </p>
+  </div>
+</div>
+
+<div>
+  <br />
+  <h3 class="text-center">Form</h3>
+
+  <form class="form-center">
+    <label for="id">Id</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="id"
+      name="id"
+      value="1000"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >Please consecutively review the stadium table.</small
+    >
+    <br /><br />
+
+    <label for="name">Stadium Name</label>
+    <input type="text" class="form-control" [(ngModel)]="name" name="name" />
+    <small id="emailHelp" class="form-text text-muted"
+      >The name of the stadium is unique.</small
+    >
+    <br /><br />
+
+    <label for="capacidad">Capacity</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="capacity"
+      name="capacidad"
+    />
+    <br />
+
+    <label for="ciudad">City </label>
+    <input type="text" class="form-control" [(ngModel)]="city" name="ciudad" />
+    <br />
+    <button
+      type="button"
+      class="PostBtnCenter"
+      (click)="createStadium(id, name, capacity, city)"
+    >
+      Create Stadium
+    </button>
+    <br /><br />
+    <button class="btn btn-danger PostBtnCenter" (click)="deleteStadium()">
+      Delete Last Stadium
+    </button>
+  </form>
+  <br /><br /><br />
+</div>

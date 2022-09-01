@@ -13,11 +13,11 @@ export class NavbarComponent implements OnInit {
   element4: string;
 
   constructor() {
-    this.title = 'HOME';
-    this.element1 = 'Estadios';
-    this.element2 = 'Equipos';
-    this.element3 = 'Jugadores';
-    this.element4 = 'Editar Estadios';
+    this.title = 'Home';
+    this.element1 = 'Stadiums';
+    this.element2 = 'Teams';
+    this.element3 = 'Players';
+    this.element4 = 'Edit Stadium';
   }
 
   ngOnInit(): void {}

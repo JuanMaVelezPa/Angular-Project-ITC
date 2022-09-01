@@ -1,10 +1,10 @@
 export var Config = {
-  tituloComponenteEquipo: 'Componente de Equipos',
-  tituloComponenteJugadores: 'Componente de Jugadores',
+  tituloComponenteEquipo: 'Teams Component',
+  tituloComponenteJugadores: 'Players Component',
   fondo: 'red',
   bordercolor: 'blue',
   estadioMedellin: 'Atanasio Girardot',
   estadioBogota: 'Campin',
   fondoNegro: 'green',
-  tituloComponenteEstadios: 'Estadios...',
+  tituloComponenteEstadios: 'Stadiums...',
 };
