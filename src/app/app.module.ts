@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 import { routing, appRoutingProviders } from './app.routing';
 import { EditStadiumComponent } from './editStadium/editStadium.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     PageNotFoundComponent,
     EditStadiumComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, FormsModule, routing],
   providers: [appRoutingProviders],
