@@ -106,37 +106,31 @@
 
   <form class="form-center">
     <label for="id">Id</label>
-    <input
-      type="text"
-      class="form-control"
-      [(ngModel)]="id"
-      name="id"
-      value="1000"
-    />
-    <small id="emailHelp" class="form-text text-muted"
+    <input type="text" class="form-control" [(ngModel)]="id" name="id" />
+    <small class="form-text text-muted"
       >Please consecutively review the stadium table.</small
     >
     <br /><br />
 
     <label for="name">Stadium Name</label>
     <input type="text" class="form-control" [(ngModel)]="name" name="name" />
-    <small id="emailHelp" class="form-text text-muted"
+    <small class="form-text text-muted"
       >The name of the stadium is unique.</small
     >
     <br /><br />
 
-    <label for="capacidad">Capacity</label>
+    <label for="city">City </label>
+    <input type="text" class="form-control" [(ngModel)]="city" name="city" />
+    <br />
+
+    <label for="capacity">Capacity</label>
     <input
       type="number"
       class="form-control"
       [(ngModel)]="capacity"
-      name="capacidad"
+      name="capacity"
     />
-    <br />
-
-    <label for="ciudad">City </label>
-    <input type="text" class="form-control" [(ngModel)]="city" name="ciudad" />
-    <br />
+    <br /><br />
     <button
       type="button"
       class="PostBtnCenter"

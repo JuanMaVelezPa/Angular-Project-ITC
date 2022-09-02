@@ -13,9 +13,28 @@
   border-top: 1px solid #a09e9e8a;
 }
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.PostBtn {
+  margin-left: 15px;
+}
+
+.PostBtnEdit {
+  width: 40px;
+  text-align: center;
+}
+
 .PostBtnCenter {
   position: absolute;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.form-center {
+  width: 400px;
+  margin: 0 auto;
 }

@@ -28,6 +28,6 @@ export class PlayersComponent implements OnInit {
   }
 
   redirectToTeams() {
-    this._router.navigate(['/equipos']);
+    this._router.navigate(['/teams']);
   }
 }

@@ -85,21 +85,3 @@ td {
   border-collapse: collapse;
 }
 
-.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.form-center {
-  width: 400px;
-  margin: 0 auto;
-}
-
-.PostBtn {
-  margin-left: 15px;
-}
-
-.PostBtnEdit {
-  width: 40px;
-  text-align: center;
-}

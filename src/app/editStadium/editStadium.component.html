@@ -1,21 +1,35 @@
 <div>
-  <h3 class="text-center">Editar Estadio</h3>
-</div>
+  <br />
+  <h1 class="text-center">{{ title }}</h1>
 
-<div>
-  <form>
-    <label for="id" class="col-sm-1">id:</label>
-    <input type="number" class="col-sm-2" />
+  <form class="form-center">
+    <label for="id">Id</label>
+    <input type="text" class="form-control" [(ngModel)]="id" name="id" />
+    <br />
+
+    <label for="name">Stadium Name</label>
+    <input type="text" class="form-control" [(ngModel)]="name" name="name" />
+    <br />
+
+    <label for="city">City </label>
+    <input type="text" class="form-control" [(ngModel)]="city" name="city" />
+    <br />
+
+    <label for="capacity">Capacity</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="capacity"
+      name="capacity"
+    />
     <br /><br />
-    <label for="nombre" class="col-sm-1">Nombre:</label>
-    <input type="text" class="col-sm-2" />
+    <button
+      type="button"
+      class="PostBtnCenter"
+      (click)="editStadium(id, name, city, capacity)"
+    >
+      Edit Stadium
+    </button>
     <br /><br />
-    <label for="ciudad" class="col-sm-1">ciudad:</label>
-    <input type="text"  class="col-sm-2" />
-    <br /><br />
-    <label for="capacidad" class="col-sm-1">capacidad:</label>
-    <input type="number" class="col-sm-2" />
-    <br /><br />
-    <button class="btn btn-warning">Update</button>
   </form>
 </div>

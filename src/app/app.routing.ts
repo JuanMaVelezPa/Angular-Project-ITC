@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'players/:firstName', component: PlayersComponent },
   { path: 'players/:firstName/:lastName', component: PlayersComponent },
   { path: 'editStadium', component: EditStadiumComponent },
-  { path: 'editStadium/:id', component: EditStadiumComponent },
+  { path: 'editStadium/:id/:name/:city/:capacity', component: EditStadiumComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 export const appRoutingProviders: any[] = [];

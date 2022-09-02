@@ -81,7 +81,7 @@ export class StadiumComponent implements OnInit {
   }
 
   createStadium(id: number, nombre: string, capacidad: number, ciudad: string) {
-    if (this.stadiums.find((x) => x.id === id) == undefined) {
+    if (this.stadiums.find((x) => x.id === id) != undefined) {
       alert('Id ' + id + ' exist. Please input next id to new stadium.');
       this.id = this.stadiums.length + 1;
       this.name = '';
@@ -129,6 +129,15 @@ export class StadiumComponent implements OnInit {
 
   editStadium(estadio: Stadium): void {
     this.selectedEstadio = estadio;
-    this._router.navigate(['/editStadium/' + estadio.id]);
+    this._router.navigate([
+      '/editStadium/' +
+        estadio.id +
+        '/' +
+        estadio.name +
+        '/' +
+        estadio.city.name +
+        '/' +
+        estadio.capacity,
+    ]);
   }
 }
