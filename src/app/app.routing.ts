@@ -9,6 +9,7 @@ import { PlayersComponent } from './players/players.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 import { EditStadiumComponent } from './editStadium/editStadium.component';
+import { UserComponent } from './user/user.component';
 
 // Arreglos de los componentes a enrutar (enrutamiento)
 const routes: Routes = [
@@ -20,7 +21,11 @@ const routes: Routes = [
   { path: 'players/:firstName', component: PlayersComponent },
   { path: 'players/:firstName/:lastName', component: PlayersComponent },
   { path: 'editStadium', component: EditStadiumComponent },
-  { path: 'editStadium/:id/:name/:city/:capacity', component: EditStadiumComponent },
+  {
+    path: 'editStadium/:id/:name/:city/:capacity',
+    component: EditStadiumComponent,
+  },
+  { path: 'users', component: UserComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 export const appRoutingProviders: any[] = [];

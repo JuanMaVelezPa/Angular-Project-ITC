@@ -7,4 +7,5 @@ export var Config = {
   estadioBogota: 'Campin',
   fondoNegro: 'green',
   tituloComponenteEstadios: 'Stadiums...',
+  urlBaseReqRes: 'https://reqres.in/api',
 };

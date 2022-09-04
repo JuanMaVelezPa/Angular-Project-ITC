@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { City } from '../model/City';
 import { Config } from '../model/Config';
 import { Stadium } from '../model/Stadium';
+import { StadiumService } from '../services/stadium.service';
 
 @Component({
   selector: 'app-stadiums',
   templateUrl: './stadiums.component.html',
   styleUrls: ['./stadiums.component.css'],
+  providers: [StadiumService],
 })
 export class StadiumComponent implements OnInit {
   public title;
@@ -22,42 +24,13 @@ export class StadiumComponent implements OnInit {
 
   selectedEstadio?: Stadium;
 
-  constructor(private _router: Router) {
+  constructor(
+    private _router: Router,
+    private _stadiumService: StadiumService
+  ) {
     this.sponsor = 'Adidas';
-
     this.title = Config.tituloComponenteEstadios;
-
-    this.stadiums = [
-      new Stadium(
-        1,
-        'Atanasio',
-        48000,
-        new City('Medellin'),
-        Math.round(Math.random() * 100)
-      ),
-      new Stadium(
-        2,
-        'Pascual',
-        40000,
-        new City('Medellin'),
-        Math.round(Math.random() * 100)
-      ),
-      new Stadium(
-        3,
-        'Campin',
-        60000,
-        new City('Bogota'),
-        Math.round(Math.random() * 100)
-      ),
-      new Stadium(
-        4,
-        'Palma',
-        40000,
-        new City('Cali'),
-        Math.round(Math.random() * 100)
-      ),
-    ];
-
+    this.stadiums = _stadiumService.getStadiums();
     this.id = this.stadiums.length + 1;
     this.name = '';
     this.capacity = 0;

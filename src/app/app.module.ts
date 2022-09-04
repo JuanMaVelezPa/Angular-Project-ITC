@@ -13,6 +13,8 @@ import { routing, appRoutingProviders } from './app.routing';
 import { EditStadiumComponent } from './editStadium/editStadium.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,9 @@ import { FooterComponent } from './footer/footer.component';
     EditStadiumComponent,
     NavbarComponent,
     FooterComponent,
+    UserComponent,
   ],
-  imports: [BrowserModule, FormsModule, routing],
+  imports: [BrowserModule, FormsModule, routing, HttpClientModule],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent],
 })

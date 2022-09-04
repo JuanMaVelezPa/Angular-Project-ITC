@@ -1,0 +1,56 @@
+<div>
+  <br />
+  <h1 class="text-center">{{ title }}</h1>
+
+  <form class="form-center">
+    <label for="id">Id:</label>
+    <input type="text" class="form-control" [(ngModel)]="id" name="id" />
+    <div class="alert alert-secondary" role="alert" *ngIf="control">
+      Invalid Id. Select another id from the Users List.
+    </div>
+    <br />
+    <button
+      class="btn btn-info PostBtnCenter"
+      type="button"
+      (click)="getUserById(id)"
+    >
+      Get User
+    </button>
+    <br /><br />
+
+    <div class="margin" *ngIf="user.id">
+      <ul>
+        <li>
+          <h3>{{ user.id + ". " + user.first_name + " " + user.last_name }}</h3>
+          <img src="{{ user.avatar }}" width="100" />
+          <p>{{ user.email }}</p>
+        </li>
+      </ul>
+    </div>
+  </form>
+
+  <div class="margin" *ngIf="!user.id">
+    <h2>Users List:</h2>
+
+    <ul>
+      <li *ngFor="let u of users">
+        <h3>{{ u.id + ". " + u.first_name + " " + u.last_name }}</h3>
+        <img src="{{ u.avatar }}" width="100" />
+        <p>{{ u.email }}</p>
+      </li>
+    </ul>
+  </div>
+  <br />
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination margin">
+      <li class="page-item">
+        <a class="page-link" (click)="getUsers('1')">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="getUsers('2')">2</a>
+      </li>
+    </ul>
+  </nav>
+  <br /><br />
+</div>
