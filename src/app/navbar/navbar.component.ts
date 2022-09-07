@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   element3: string;
   element4: string;
   element5: string;
+  element6: string;
 
   constructor() {
     this.title = 'Home';
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
     this.element3 = 'Players';
     this.element4 = 'Edit Stadium';
     this.element5 = 'Users';
+    this.element6 = 'Create user';
   }
 
   ngOnInit(): void {}

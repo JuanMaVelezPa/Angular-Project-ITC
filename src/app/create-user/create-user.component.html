@@ -1,0 +1,163 @@
+<div>
+  <br />
+  <h1 class="text-center">{{ title }}</h1>
+
+  <form class="form-center" #saveUser="ngForm" (ngSubmit)="onSubmit(saveUser)">
+    <table>
+      <tr>
+        <td>
+          <label for="firstName">First Name:</label>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="firstName"
+            class="form-control"
+            #firstName="ngModel"
+            [(ngModel)]="user.firstName"
+            required
+            minlength="5"
+            pattern="[a-z A-Z]+"
+          />
+          <div
+            class="alert alert-secondary"
+            role="alert"
+            *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+          >
+            <div *ngIf="firstName.errors?.['required']">
+              Fist Name is required!.
+            </div>
+            <div *ngIf="firstName.errors?.['minlength']">
+              Length must be greater than 5!.
+            </div>
+            <div *ngIf="firstName.errors?.['pattern']">
+              Only accepted letters!.
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="lastName">Last Name:</label>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="lastName"
+            class="form-control"
+            #lastName="ngModel"
+            [(ngModel)]="user.lastName"
+            required
+            minlength="5"
+            pattern="[a-z A-Z]+"
+          />
+          <div
+            class="alert alert-secondary"
+            role="alert"
+            *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+          >
+            <div *ngIf="lastName.errors?.['required']">
+              Last Name is required!.
+            </div>
+            <div *ngIf="lastName.errors?.['minlength']">
+              Length must be grater than 5!.
+            </div>
+            <div *ngIf="lastName.errors?.['pattern']">
+              Only accepted letters!.
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email">Email:</label>
+        </td>
+        <td>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            #email="ngModel"
+            [(ngModel)]="user.email"
+            required
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          />
+          <div
+            class="alert alert-secondary"
+            role="alert"
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+          >
+            <div *ngIf="email.errors?.['required']">Email is required!.</div>
+            <div *ngIf="email.errors?.['pattern']">
+              Email invalid example@example.com
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="phone">Phone Number:</label>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="phone"
+            class="form-control"
+            #phone="ngModel"
+            [(ngModel)]="user.phone"
+            pattern="[0-9]+$"
+            maxlength="10"
+          />
+          <div
+            class="alert alert-secondary"
+            role="alert"
+            *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+          >
+            <div *ngIf="phone.errors?.['pattern']">only accepted numbers!.</div>
+            <div *ngIf="phone.errors?.['maxlength']">
+              Max Length must be 10 numbers!.
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="job">Job:</label>
+        </td>
+        <td>
+          <input
+            type="text"
+            name="job"
+            class="form-control"
+            #job="ngModel"
+            [(ngModel)]="user.job"
+            required
+            pattern="[a-z A-Z]+"
+          />
+          <div
+            class="alert alert-secondary"
+            role="alert"
+            *ngIf="job.invalid && (job.dirty || job.touched)"
+          >
+            <div *ngIf="job.errors?.['required']">Job is required!.</div>
+            <div *ngIf="job.errors?.['pattern']">Only accepted letters!.</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <br />
+
+    <input
+      type="submit"
+      value="Save"
+      class="PostBtnCenter"
+      [disabled]="saveUser.form.invalid"
+    />
+
+    <br /><br />
+    <div class="alert alert-success text-center" role="alert" *ngIf="mensaje">
+      {{ mensaje | titlecase }}
+    </div>
+  </form>
+  <br /><br />
+</div>
